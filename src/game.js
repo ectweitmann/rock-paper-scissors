@@ -6,7 +6,16 @@ class Game {
   }
 
   playGame(version) {
-
+    switch (version) {
+      case 'original' :
+        this.compareChampions('original');
+        this.reset();
+        break;
+      case 'alternate' :
+        this.compareChampions('alternate');
+        this.reset();
+        break;
+    }
   }
 
   compareChampions(version) {
