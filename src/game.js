@@ -25,3 +25,18 @@ class Game {
 
   }
 }
+
+var originalChampions = {
+  rock: {
+    beatsPaper: false,
+    beatsScissors: true,
+  },
+  paper: {
+    beatsScissors: false,
+    beatsRock: true,
+  },
+  scissors: {
+    beatsRock: false,
+    beatsPaper: true,
+  },
+};
