@@ -18,7 +18,7 @@ class Game {
   }
 
   addWin(player) {
-
+    player.wins++;
   }
 
   reset() {
