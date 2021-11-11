@@ -10,7 +10,30 @@ class Game {
   }
 
   compareChampions(version) {
-
+    switch (version) {
+      case 'original' :
+        if (this.player1.selection === this.player2.selection.toLowerCase()) {
+          /*return*/ console.log('‍🪢 It\'s a tie! 🪢');
+        } else if (originalChampions[this.player1.selection][`beats${this.player2.selection}`]) {
+          this.addWin(this.player1);
+          /*return*/ console.log(`${this.player1.token} ${this.player1.name} won this round! ${this.player1.token}`);
+        } else if (!originalChampions[this.player1.selection][`beats${this.player2.selection}`]) {
+          this.addWin(this.player2);
+          /*return*/ console.log(`${this.player2.token} ${this.player2.name} won this round! ${this.player2.token}`);
+        }
+        break;
+      case 'alternate' :
+        if (this.player1.selection === this.player2.selection.toLowerCase()) {
+          /*return*/ console.log('‍🪢 It\'s a tie! 🪢');
+        } else if (alternateChampions[this.player1.selection][`beats${this.player2.selection}`]) {
+          this.addWin(this.player1);
+          /*return*/ console.log(`${this.player1.token} ${this.player1.name} won this round! ${this.player1.token}`);
+        } else if (!alternateChampions[this.player1.selection][`beats${this.player2.selection}`]) {
+          this.addWin(this.player2);
+          /*return*/ console.log(`${this.player2.token} ${this.player2.name} won this round! ${this.player2.token}`);
+        }
+        break;
+    }
   }
 
   selectChampion(player, champion) {
