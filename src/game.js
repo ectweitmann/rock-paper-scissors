@@ -45,14 +45,6 @@ class Game {
     }
   }
 
-  selectChampion(player, champion) {
-    if (player.name === 'Computer') {
-      player.selection = champion[0].toUpperCase() + champion.slice(1);
-    } else {
-      player.selection = champion;
-    }
-  }
-
   addWin(player) {
     player.wins++;
   }
