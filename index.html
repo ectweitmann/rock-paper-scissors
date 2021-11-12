@@ -11,7 +11,7 @@
   <body>
     <section class="player-columns">
       <div class ="player-info-container">
-        <p class="player-tokens" id="player1Token">🧔🏻‍♂️</p>
+        <img class="human-token" id="player1Token" src="assets/man.png">
         <h2 class="" id="player1Name">Human</h2>
         <p class="player-wins" id="player1Wins">Wins: 0</p>
       </div>
@@ -23,17 +23,17 @@
       </div>
       <section class="arena" id="arena">
         <div class="game-type-container" id="gameTypeContainer">
-          <section class="game-types">
-            <h2>🪨 CLASSIC ✂️</h2>
-            <p>
+          <section class="game-types height-classic-game">
+            <h2 class="text-game-types">🪨 CLASSIC ✂️</h2>
+            <p class="text-game-types">
               rock > scissors<br>
               paper > rock<br>
               scissors > paper
             </p>
           </section>
-          <section class="game-types">
-            <h2>🦎 DIFFICULT 🖖🏼</h2>
-            <p>
+          <section class="game-types height-difficult-game">
+            <h2 class="text-game-types">🦎 DIFFICULT 🖖🏼</h2>
+            <p class="text-game-types">
               rock > scissors & lizard<br>
               paper > rock & spock<br>
               scissors > paper & lizard<br>
@@ -42,18 +42,18 @@
             </p>
           </section>
         </div>
-        <section class="hidden" id="ChampionIconsContainer">
-          <img class="" id="rock" src="">
-          <img class="" id="paper" src="">
-          <img class="" id="scissors" src="">
-          <img class="hidden" id="lizard" src="">
-          <img class="hidden" id="spock" src="">
+        <section class="champion-icons-container hidden" id="ChampionIconsContainer">
+          <img class="champion-icons" id="rock" src="assets/rock.png" alt="Rock">
+          <img class="champion-icons" id="paper" src="assets/paper.png" alt="Paper">
+          <img class="champion-icons" id="scissors" src="assets/scissors.png" alt="Scissors">
+          <img class="champion-icons hidden" id="lizard" src="assets/lizard.png" alt="Lizard">
+          <img class="champion-icons hidden" id="spock" src="assets/spock.png" alt="Spock Hand">
         </section>
       </section>
     </main>
     <section class="player-columns" id="player2Container">
       <div class="player-info-container">
-        <p class="player-tokens" id="player2Token">💻</p>
+        <img class="computer-token" id="player2Token" src="assets/computer.png">
         <h2 class="" id="player2Name">Computer</h2>
         <p class="player-wins" id="player2Wins">Wins: 0</p>
       </div>
