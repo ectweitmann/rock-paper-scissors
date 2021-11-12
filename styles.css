@@ -1,9 +1,6 @@
-*,
-*:before,
-*:after {
+* {
   margin: 0;
   font-family: "Exo 2", sans-serif;
-  color: #e4e4e4;
 }
 
 /* Base Page */
@@ -17,6 +14,23 @@ body {
   justify-content: space-between;
   align-items: center;
   height: inherit;
+  color: #e4e4e4;
+}
+
+button {
+  height: 4%;
+  width: 15%;
+  background-color: #e4e4e4;
+  color: #011A20;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #011A20;
+  color: #e4e4e4;
+  border: 1px solid #e4e4e4;
 }
 
 /* Player Sections */
@@ -41,8 +55,18 @@ body {
   margin-top: 10px;
 }
 
-.player-tokens {
-  font-size: 70px;
+.human-token,
+.computer-token {
+  height: 75px;
+  width: 75px;
+  padding: 1px;
+  background-color: #FDB441;
+  border: 2px solid #e4e4e4;
+  border-radius: 50%;
+}
+
+.computer-token {
+  background-color: #FDB441;
 }
 
 .player-info-container  > h2,
@@ -76,7 +100,11 @@ body {
 }
 
 .arena {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 60%;
+  width: 100%;
 }
 
 .arena-title {
@@ -85,10 +113,65 @@ body {
   letter-spacing: 2px;
 }
 
+/* Game Types Section */
+
 .game-type-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
   height: 100%;
+  width: 100%;
+}
+
+.game-types {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  line-height: 25px;
+  border-radius: 10px;
+  height: 40%;
+  width: 27%;
+  background-color: #011A20;
+  cursor: pointer;
+}
+
+.height-classic-game {
+  height:40%;
+}
+
+.height-difficult-game {
+  height:50%;
+}
+
+.game-types:hover {
+  color: #002b36;
+  background-color: #e4e4e4;
+}
+
+/* Champion Icons Section */
+
+.champion-icons-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+}
+
+.champion-icons {
+  height: 200px;
+  width: 200px;
+  margin: 8px;
+  cursor: pointer;
+}
+
+.champion-icons:hover {
+  transform: scale(1.15);
+}
+
+.hidden {
+  display: none;
 }
