@@ -1,0 +1,177 @@
+* {
+  margin: 0;
+  font-family: "Exo 2", sans-serif;
+}
+
+/* Base Page */
+
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: inherit;
+  color: #e4e4e4;
+}
+
+button {
+  height: 4%;
+  width: 15%;
+  background-color: #e4e4e4;
+  color: #011A20;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #011A20;
+  color: #e4e4e4;
+  border: 1px solid #e4e4e4;
+}
+
+/* Player Sections */
+
+.player-columns {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: inherit;
+  width: 15%;
+  background-color: #073642;
+}
+
+.player-info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 30%;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.human-token,
+.computer-token {
+  height: 75px;
+  width: 75px;
+  padding: 1px;
+  background-color: #FDB441;
+  border: 2px solid #e4e4e4;
+  border-radius: 50%;
+}
+
+.computer-token {
+  background-color: #FDB441;
+}
+
+.player-info-container  > h2,
+.game-narration {
+  font-weight: 400;
+  font-size: 30px;
+}
+
+.player-wins {
+  font-weight: 200;
+  font-size: 20px;
+}
+
+/* Arena Section */
+
+.arena-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: inherit;
+  width: 70%;
+  background-color: #002b36;
+}
+
+.arena-titles-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.arena {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60%;
+  width: 100%;
+}
+
+.arena-title {
+  font-weight: 800;
+  font-size: 75px;
+  letter-spacing: 2px;
+}
+
+/* Game Types Section */
+
+.game-type-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  width: 100%;
+}
+
+.game-types {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  line-height: 25px;
+  border-radius: 10px;
+  height: 40%;
+  width: 27%;
+  background-color: #011A20;
+  cursor: pointer;
+}
+
+.height-classic-game {
+  height:40%;
+}
+
+.height-difficult-game {
+  height:50%;
+}
+
+.game-types:hover {
+  color: #002b36;
+  background-color: #e4e4e4;
+}
+
+/* Champion Icons Section */
+
+.champion-icons-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+}
+
+.champion-icons {
+  height: 200px;
+  width: 200px;
+  margin: 8px;
+  cursor: pointer;
+}
+
+.champion-icons:hover {
+  transform: scale(1.15);
+}
+
+.hidden {
+  display: none;
+}

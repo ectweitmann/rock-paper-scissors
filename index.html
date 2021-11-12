@@ -2,32 +2,38 @@
 <html lang="en" >
   <head>
     <meta charset="UTF-8">
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Playball&family=Playfair+Display&display=swap" rel="stylesheet"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200;400;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
     <title>Rock, Paper, Scissors</title>
   </head>
   <body>
-    <section class="" id="player1Container">
-      <p class="" id="player1Token">🧔🏻‍♂️</p>
-      <h2 class="" id="player1Name">Human</h2>
-      <p class="" id="player1Wins">Wins: 0</p>
+    <section class="player-columns">
+      <div class ="player-info-container">
+        <img class="human-token" id="player1Token" src="assets/man.png">
+        <h2 class="" id="player1Name">Human</h2>
+        <p class="player-wins" id="player1Wins">Wins: 0</p>
+      </div>
     </section>
-    <main class="" id="arenaContainer">
-      <h1>Rock, Paper, Scissors</h1>
-      <p class="" id="gameNarration">Choose your game!</p>
-      <section class="" id="arena">
-        <div class="" id="gameTypeContainer">
-          <section class="">
-            <h2>🪨 CLASSIC ✂️</h2>
-            <p>
+    <main class="arena-container" id="arenaContainer">
+      <div class="arena-titles-container">
+        <h1 class="arena-title">Rock, Paper, Scissors</h1>
+        <p class="game-narration" id="gameNarration">Choose your game!</p>
+      </div>
+      <section class="arena" id="arena">
+        <div class="game-type-container" id="gameTypeContainer">
+          <section class="game-types height-classic-game">
+            <h2 class="text-game-types">🪨 CLASSIC ✂️</h2>
+            <p class="text-game-types">
               rock > scissors<br>
               paper > rock<br>
               scissors > paper
             </p>
           </section>
-          <section class="">
-            <h2>🦎 DIFFICULT 🖖🏼</h2>
-            <p>
+          <section class="game-types height-difficult-game">
+            <h2 class="text-game-types">🦎 DIFFICULT 🖖🏼</h2>
+            <p class="text-game-types">
               rock > scissors & lizard<br>
               paper > rock & spock<br>
               scissors > paper & lizard<br>
@@ -36,19 +42,22 @@
             </p>
           </section>
         </div>
-        <section class="hidden" id="ChampionIconsContainer">
-          <img class="" id="rock" src="">
-          <img class="" id="paper" src="">
-          <img class="" id="scissors" src="">
-          <img class="hidden" id="lizard" src="">
-          <img class="hidden" id="spock" src="">
+        <section class="champion-icons-container hidden" id="ChampionIconsContainer">
+          <img class="champion-icons" id="rock" src="assets/rock.png" alt="Rock">
+          <img class="champion-icons" id="paper" src="assets/paper.png" alt="Paper">
+          <img class="champion-icons" id="scissors" src="assets/scissors.png" alt="Scissors">
+          <img class="champion-icons hidden" id="lizard" src="assets/lizard.png" alt="Lizard">
+          <img class="champion-icons hidden" id="spock" src="assets/spock.png" alt="Spock Hand">
         </section>
       </section>
+      <button id="changeGame">CHANGE GAME</button>
     </main>
-    <section class="" id="player2Container">
-      <p class="" id="player2Token">💻</p>
-      <h2 class="" id="player2Name">Computer</h2>
-      <p class="" id="player2Wins">Wins: 0</p>
+    <section class="player-columns" id="player2Container">
+      <div class="player-info-container">
+        <img class="computer-token" id="player2Token" src="assets/computer.png">
+        <h2 class="" id="player2Name">Computer</h2>
+        <p class="player-wins" id="player2Wins">Wins: 0</p>
+      </div>
     </section>
     <script src="./src/player.js"></script>
     <script src="./src/game.js"></script>
