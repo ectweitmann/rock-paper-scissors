@@ -5,17 +5,9 @@ class Game {
     this.gameLogic = gameLogic[type];
   }
 
-  playGame(version) {
-    switch (version) {
-      case 'original' :
-        this.compareChampions('original');
-        this.reset();
-        break;
-      case 'alternate' :
-        this.compareChampions('alternate');
-        this.reset();
-        break;
-    }
+  playGame() {
+    this.compareChampions();
+    this.reset();
   }
 
   compareChampions() {
