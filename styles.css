@@ -138,6 +138,11 @@ button:hover {
   cursor: pointer;
 }
 
+.game-types > h2,
+p {
+  pointer-events: none;
+}
+
 .height-classic-game {
   height:40%;
 }
