@@ -14,10 +14,6 @@ class Player {
   }
 
   takeTurn(champion) {
-    if (this.name === 'Computer') {
-      this.selection = champion[0].toUpperCase() + champion.slice(1);
-    } else {
-      this.selection = champion;
-    }
+    this.selection = champion;
   }
 }
