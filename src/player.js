@@ -1,8 +1,8 @@
 class Player {
-  constructor(name, token) {
+  constructor(name, token, wins) {
     this.name = name;
     this.token = token;
-    this.wins = 0;
+    this.wins = wins;
   }
 
   saveWinsToStorage() {
@@ -14,10 +14,6 @@ class Player {
   }
 
   takeTurn(champion) {
-    if (this.name === 'Computer') {
-      this.selection = champion[0].toUpperCase() + champion.slice(1);
-    } else {
-      this.selection = champion;
-    }
+    this.selection = champion;
   }
 }
