@@ -31,6 +31,14 @@ function setUpGame(event) {
   );
 }
 
+function toggleUnselectedChampionsVisibility() {
+  for (var i = 0; i < currentGame.gameLogic.champions.length; i++) {
+    if (championIcons[i].id !== currentGame.player1.champion) {
+      toggleElementVisibility(championIcons[i], true);
+    }
+  }
+}
+
 function toggleElementVisibility(element, isVisible) {
   element.classList.toggle('hidden', isVisible);
 }
@@ -66,6 +74,22 @@ function displayGameBoard(event) {
   changeGameInstructionText();
   setUpGame(event);
   addEventListenersToChampionIcons();
+}
+
+function resetGameBoard(gameType) {
+  console.log("ENTERED resetGameBoard function");
+  switch (gameType) {
+    case 'classic' :
+      for (var i = 0; i < currentGame.gameLogic.champions.length; i++) {
+        toggleElementVisibility(championIcons[i], false);
+      }
+        break;
+    case 'difficult' :
+      for (var i = 0; i < currentGame.gameLogic.champions.length; i++) {
+        toggleElementVisibility(championIcons[i], false);
+      }
+      break;
+  }
 }
 
 function displayGameMenu() {
