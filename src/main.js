@@ -46,6 +46,12 @@ function toggleChampionIconsContainerVisibility(gameType) {
   }
 }
 
+function addEventListenersToChampionIcons() {
+  for (var i = 0; i < championIcons.length; i++) {
+    championIcons[i].addEventListener('click', playGame);
+  }
+}
+
 function displayGameBoard(event) {
   toggleGameTypeContainerVisibility();
   toggleChampionIconsContainerVisibility(getGameType(event));
