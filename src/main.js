@@ -23,6 +23,14 @@ function getGameType(event) {
   return event.target.children[0].id;
 }
 
+function setUpGame(event) {
+  currentGame = new Game(
+    new Player(player1Name.innerText, player1Token, 0),
+    new Player(player2Name.innerText, player2Token, 0),
+    getGameType(event)
+  );
+}
+
 function toggleElementVisibility(element, isVisible) {
   element.classList.toggle('hidden', isVisible);
 }
@@ -56,6 +64,7 @@ function displayGameBoard(event) {
   toggleGameTypeContainerVisibility();
   toggleChampionIconsContainerVisibility(getGameType(event));
   changeGameInstructionText();
+  setUpGame(event);
 }
 
 function displayGameMenu() {
