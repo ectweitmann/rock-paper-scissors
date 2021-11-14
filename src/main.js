@@ -5,7 +5,8 @@ var player2Wins = document.querySelector('#player2Wins');
 
 var gameTypeContainer = document.querySelector('#gameTypeContainer');
 var championIconsContainer= document.querySelector('#championIconsContainer');
-var gameNarration = document.querySelector('#gameNarration');
+var gameInstructions = document.querySelector('#gameInstructions');
+var gameResults = document.querySelector('#gameResults');
 
 var player1Token = document.querySelector('#player1Token').src;
 var player2Token = document.querySelector('#player2Token').src;
@@ -14,3 +15,6 @@ var championIcons = championIconsContainer.querySelectorAll('img');
 var buttonChangeGame = document.querySelector('#changeGame');
 
 var currentGame;
+
+gameTypeContainer.addEventListener('click', displayGameBoard);
+buttonChangeGame.addEventListener('click', displayGameMenu);
