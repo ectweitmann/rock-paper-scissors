@@ -65,10 +65,15 @@ function displayGameBoard(event) {
   toggleChampionIconsContainerVisibility(getGameType(event));
   changeGameInstructionText();
   setUpGame(event);
+  addEventListenersToChampionIcons();
 }
 
 function displayGameMenu() {
   toggleChampionIconsContainerVisibility();
   toggleGameTypeContainerVisibility();
   changeGameInstructionText();
+}
+
+function getRandomIndex(array) {
+  return Math.floor(Math.random() * array.length);
 }
