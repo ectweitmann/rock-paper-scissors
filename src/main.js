@@ -18,3 +18,36 @@ var currentGame;
 
 gameTypeContainer.addEventListener('click', displayGameBoard);
 buttonChangeGame.addEventListener('click', displayGameMenu);
+
+function getGameType(event) {
+  return event.target.children[0].id;
+}
+
+function toggleElementVisibility(element, isVisible) {
+  element.classList.toggle('hidden', isVisible);
+}
+
+function toggleGameTypeContainerVisibility() {
+  toggleElementVisibility(gameTypeContainer);
+}
+
+function changeGameInstructionText() {
+  if (gameTypeContainer.classList.contains('hidden')) {
+    gameInstructions.innerText = 'Choose your Champion!';
+  } else {
+    gameInstructions.innerText = 'Choose your game!';
+  }
+}
+
+function toggleChampionIconsContainerVisibility(gameType) {
+  toggleElementVisibility(championIconsContainer);
+  for (var i = 3; i < championIcons.length; i++) {
+    toggleElementVisibility(championIcons[i], gameType === 'classic');
+  }
+}
+
+function displayGameBoard(event) {
+  toggleGameTypeContainerVisibility();
+  toggleChampionIconsContainerVisibility(getGameType(event));
+  changeGameInstructionText();
+}
