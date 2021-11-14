@@ -14,6 +14,6 @@ class Player {
   }
 
   takeTurn(champion) {
-    this.selection = champion;
+    this.champion = champion;
   }
 }
