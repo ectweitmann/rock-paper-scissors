@@ -69,8 +69,7 @@ button:hover {
   background-color: #FDB441;
 }
 
-.player-info-container  > h2,
-.game-narration {
+.player-info-container  > h2 {
   font-weight: 400;
   font-size: 30px;
 }
@@ -97,6 +96,17 @@ button:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.game-tagline {
+  font-weight: 400;
+  font-size: 40px;
+  margin-top: 5px;
+}
+
+.game-result {
+  height: 40px;
+  width: 40px;
 }
 
 .arena {
