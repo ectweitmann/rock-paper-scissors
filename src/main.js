@@ -51,3 +51,9 @@ function displayGameBoard(event) {
   toggleChampionIconsContainerVisibility(getGameType(event));
   changeGameInstructionText();
 }
+
+function displayGameMenu() {
+  toggleChampionIconsContainerVisibility();
+  toggleGameTypeContainerVisibility();
+  changeGameInstructionText();
+}
