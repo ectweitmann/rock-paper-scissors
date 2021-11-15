@@ -17,14 +17,6 @@ class Game {
     return this.player2;
   }
 
-  selectChampions(event) {
-    this.player1.takeTurn(event.target.id);
-    this.player1.championToken = event.target;
-    toggleElementOrder(event.target);
-    this.player2.takeTurn(this.gameLogic.champions[getRandomIndex(this.gameLogic.champions)]);
-    this.player2.championToken = `assets/${this.player2.champion}.png`;
-  }
-
   addWin(player) {
     player.wins++;
   }
