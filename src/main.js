@@ -16,6 +16,7 @@ var buttonChangeGame = document.querySelector('#changeGame');
 
 var currentGame;
 
+window.addEventListener('load', addEventListenersToChampionIcons);
 gameTypeContainer.addEventListener('click', displayGameBoard);
 buttonChangeGame.addEventListener('click', displayGameMenu);
 
@@ -25,18 +26,46 @@ function getGameType(event) {
 
 function setUpGame(event) {
   currentGame = new Game(
-    new Player(player1Name.innerText, player1Token, 0),
-    new Player(player2Name.innerText, player2Token, 0),
+    new Player(player1Name.innerText, player1Token, player1Wins.innerText),
+    new Player(player2Name.innerText, player2Token, player2Wins.innerText),
     getGameType(event)
   );
 }
 
+function declareGameResult(winner) {
+  toggleElementVisibility(gameInstructions, true);
+  toggleElementVisibility(gameResults, false);
+  gameResults.innerHTML = '';
+  if (winner === 'tie') {
+     return gameResults.innerHTML = `‍🪢 It\'s a tie! 🪢`;
+  }
+  gameResults.innerHTML = `
+    <p class="game-tagline">
+    <img class="game-result" src="assets/${winner.name}.png"> ${winner.name} won this round!
+    <img class="game-result" src="assets/${winner.name}.png">
+    </p>`;
+  updatePlayerWins(winner);
+}
+
+function updatePlayerWins(winner) {
+  if (winner === currentGame.player1) {
+    player1Wins.innerText = `${winner.wins}`;
+  } else if (winner === currentGame.player2) {
+    player2Wins.innerText = `${winner.wins}`;
+  }
+}
+
 function toggleUnselectedChampionsVisibility() {
   for (var i = 0; i < currentGame.gameLogic.champions.length; i++) {
-    if (championIcons[i].id !== currentGame.player1.champion) {
-      toggleElementVisibility(championIcons[i], true);
+    toggleElementVisibility(championIcons[i], true);
+    if (championIcons[i].id === currentGame.player1.champion || championIcons[i].id === currentGame.player2.champion) {
+      toggleElementVisibility(championIcons[i]);
     }
   }
+}
+
+function toggleElementOrder(element) {
+  element.classList.toggle('p1-champion-order');
 }
 
 function toggleElementVisibility(element, isVisible) {
@@ -56,6 +85,9 @@ function changeGameInstructionText() {
 }
 
 function toggleChampionIconsContainerVisibility(gameType) {
+  if (!gameType) {
+    return toggleElementVisibility(championIconsContainer);
+  }
   toggleElementVisibility(championIconsContainer);
   for (var i = 3; i < championIcons.length; i++) {
     toggleElementVisibility(championIcons[i], gameType === 'classic');
@@ -64,7 +96,9 @@ function toggleChampionIconsContainerVisibility(gameType) {
 
 function addEventListenersToChampionIcons() {
   for (var i = 0; i < championIcons.length; i++) {
-    championIcons[i].addEventListener('click', playGame);
+    championIcons[i].addEventListener('click', function() {
+      currentGame.playGame(event);
+    });
   }
 }
 
@@ -73,29 +107,24 @@ function displayGameBoard(event) {
   toggleChampionIconsContainerVisibility(getGameType(event));
   changeGameInstructionText();
   setUpGame(event);
-  addEventListenersToChampionIcons();
 }
 
-function resetGameBoard(gameType) {
-  console.log("ENTERED resetGameBoard function");
-  switch (gameType) {
-    case 'classic' :
-      for (var i = 0; i < currentGame.gameLogic.champions.length; i++) {
-        toggleElementVisibility(championIcons[i], false);
-      }
-        break;
-    case 'difficult' :
-      for (var i = 0; i < currentGame.gameLogic.champions.length; i++) {
-        toggleElementVisibility(championIcons[i], false);
-      }
-      break;
+function resetGameBoard() {
+  toggleElementOrder(currentGame.player1.championToken);
+  for (var i = 0; i < currentGame.gameLogic.champions.length; i++) {
+    toggleElementVisibility(championIcons[i], false);
   }
+  toggleElementVisibility(gameResults, true);
+  toggleElementVisibility(gameInstructions , false);
+  changeGameInstructionText();
+  toggleElementVisibility(buttonChangeGame, false);
 }
 
 function displayGameMenu() {
   toggleChampionIconsContainerVisibility();
   toggleGameTypeContainerVisibility();
   changeGameInstructionText();
+  toggleElementVisibility(buttonChangeGame);
 }
 
 function getRandomIndex(array) {
