@@ -2,23 +2,19 @@ class Game {
   constructor (player1, player2, type) {
     this.player1 = player1;
     this.player2 = player2;
+    this.type = type;
     this.gameLogic = gameLogic[type];
   }
 
-  playGame() {
-    this.compareChampions();
-    this.reset();
-  }
-
   compareChampions() {
-    if (this.player1.selection === this.player2.selection) {
-      return console.log('‍🪢 It\'s a tie! 🪢');
-    } else if (this.gameLogic[this.player1.selection].beats.includes(this.player2.selection)) {
+    if (this.player1.champion === this.player2.champion) {
+      return 'tie';
+    } else if (this.gameLogic[this.player1.champion].beats.includes(this.player2.champion)) {
       this.addWin(this.player1);
-      return console.log(`${this.player1.token} ${this.player1.name} won this round! ${this.player1.token}`);
+      return this.player1;
     }
     this.addWin(this.player2);
-    console.log(`${this.player2.token} ${this.player2.name} won this round! ${this.player2.token}`);
+    return this.player2;
   }
 
   addWin(player) {
@@ -26,6 +22,9 @@ class Game {
   }
 
   reset() {
-
+    this.player1.champion = null;
+    this.player1.championToken = null;
+    this.player2.champion = null;
+    this.player2.championToken = null;
   }
 }

@@ -14,6 +14,10 @@ class Player {
   }
 
   takeTurn(champion) {
-    this.selection = champion;
+    if (this.name === 'Human') {
+      return this.champion = champion;
+    } else {
+      return this.champion = currentGame.gameLogic.champions[getRandomIndex(currentGame.gameLogic.champions)];
+    }
   }
 }
