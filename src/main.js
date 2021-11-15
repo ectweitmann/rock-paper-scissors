@@ -65,8 +65,10 @@ function declareGameResult(winner) {
 function updatePlayerWins(winner) {
   if (winner === currentGame.player1) {
     player1Wins.innerText = `${winner.wins}`;
+    winner.saveWinsToStorage();
   } else if (winner === currentGame.player2) {
     player2Wins.innerText = `${winner.wins}`;
+    winner.saveWinsToStorage();
   }
 }
 
