@@ -44,7 +44,7 @@ function playGame(event) {
   selectChampions(event);
   declareGameResult(currentGame.compareChampions());
   toggleUnselectedChampionsVisibility();
-  currentGame.reset();
+  setTimeout(resetGameBoard, 1000);
 }
 
 function declareGameResult(winner) {
@@ -131,6 +131,7 @@ function resetGameBoard() {
   toggleElementVisibility(gameInstructions , false);
   changeGameInstructionText();
   toggleElementVisibility(buttonChangeGame, false);
+  currentGame.reset();
 }
 
 function displayGameMenu() {
