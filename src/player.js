@@ -10,7 +10,7 @@ class Player {
   }
 
   retrieveWinsFromStorage() {
-    this.wins = JSON.parse(localStorage.getItem(this.name));
+    return JSON.parse(localStorage.getItem(this.name)) || 0;
   }
 
   takeTurn(champion) {
