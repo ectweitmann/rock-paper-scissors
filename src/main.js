@@ -32,6 +32,13 @@ function setUpGame(event) {
   );
 }
 
+function playGame(event) {
+  currentGame.selectChampions(event);
+  declareGameResult(currentGame.compareChampions());
+  toggleUnselectedChampionsVisibility();
+  currentGame.reset();
+}
+
 function declareGameResult(winner) {
   toggleElementVisibility(gameInstructions, true);
   toggleElementVisibility(gameResults, false);
@@ -96,9 +103,7 @@ function toggleChampionIconsContainerVisibility(gameType) {
 
 function addEventListenersToChampionIcons() {
   for (var i = 0; i < championIcons.length; i++) {
-    championIcons[i].addEventListener('click', function() {
-      currentGame.playGame(event);
-    });
+    championIcons[i].addEventListener('click', playGame);
   }
 }
 
