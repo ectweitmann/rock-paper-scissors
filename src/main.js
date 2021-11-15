@@ -32,8 +32,16 @@ function setUpGame(event) {
   );
 }
 
+function selectChampions(event) {
+  currentGame.player1.takeTurn(event.target.id);
+  currentGame.player1.championToken = event.target;
+  toggleElementOrder(event.target);
+  currentGame.player2.takeTurn(currentGame.gameLogic.champions[getRandomIndex(currentGame.gameLogic.champions)]);
+  currentGame.player2.championToken = `assets/${currentGame.player2.champion}.png`;
+}
+
 function playGame(event) {
-  currentGame.selectChampions(event);
+  selectChampions(event);
   declareGameResult(currentGame.compareChampions());
   toggleUnselectedChampionsVisibility();
   currentGame.reset();
