@@ -6,13 +6,6 @@ class Game {
     this.gameLogic = gameLogic[type];
   }
 
-  playGame(event) {
-    this.selectChampions(event);
-    declareGameResult(this.compareChampions());
-    toggleUnselectedChampionsVisibility();
-    this.reset();
-  }
-
   compareChampions() {
     if (this.player1.champion === this.player2.champion) {
       return 'tie';
