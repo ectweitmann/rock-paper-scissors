@@ -22,6 +22,9 @@ class Game {
   }
 
   reset() {
-    setTimeout(resetGameBoard, 1000);
+    this.player1.champion = null;
+    this.player1.championToken = null;
+    this.player2.champion = null;
+    this.player2.championToken = null;
   }
 }
