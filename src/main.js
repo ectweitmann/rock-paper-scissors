@@ -14,9 +14,12 @@ var championIcons = championIconsContainer.querySelectorAll('img');
 
 var buttonChangeGame = document.querySelector('#changeGame');
 
-var currentGame;
+var currentGame = new Game(
+  new Player(player1Name.innerText, player1Token, player1Wins.innerText),
+  new Player(player2Name.innerText, player2Token, player2Wins.innerText)
+);
 
-window.addEventListener('load', addEventListenersToChampionIcons);
+window.addEventListener('load', setUpGame);
 gameTypeContainer.addEventListener('click', displayGameBoard);
 buttonChangeGame.addEventListener('click', displayGameMenu);
 
@@ -24,12 +27,19 @@ function getGameType(event) {
   return event.target.children[0].id;
 }
 
+function applyGameType(event) {
+  currentGame.type = getGameType(event);
+  currentGame.establishGameType();
+}
+
 function setUpGame(event) {
-  currentGame = new Game(
-    new Player(player1Name.innerText, player1Token, player1Wins.innerText),
-    new Player(player2Name.innerText, player2Token, player2Wins.innerText),
-    getGameType(event)
-  );
+  displayPlayerWins();
+  addEventListenersToChampionIcons();
+}
+
+function displayPlayerWins() {
+  player1Wins.innerText = `${currentGame.player1.retrieveWinsFromStorage()}`;
+  player2Wins.innerText = `${currentGame.player2.retrieveWinsFromStorage()}`;
 }
 
 function selectChampions(event) {
@@ -121,7 +131,7 @@ function displayGameBoard(event) {
   toggleGameTypeContainerVisibility();
   toggleChampionIconsContainerVisibility(getGameType(event));
   changeGameInstructionText();
-  setUpGame(event);
+  applyGameType(event);
 }
 
 function resetGameBoard() {
