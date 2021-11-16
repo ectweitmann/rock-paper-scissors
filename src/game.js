@@ -1,9 +1,11 @@
 class Game {
-  constructor (player1, player2, type) {
+  constructor (player1, player2) {
     this.player1 = player1;
     this.player2 = player2;
-    this.type = type;
-    this.gameLogic = gameLogic[type];
+  }
+
+  establishGameType() {
+    this.gameLogic = gameLogic[this.type];
   }
 
   compareChampions() {
@@ -18,7 +20,7 @@ class Game {
   }
 
   addWin(player) {
-    player.wins++;
+    player.wins = player.retrieveWinsFromStorage() + 1;
   }
 
   reset() {

@@ -6,11 +6,11 @@ class Player {
   }
 
   saveWinsToStorage() {
-
+    localStorage.setItem(this.name, JSON.stringify(this.wins));
   }
 
   retrieveWinsFromStorage() {
-
+    return JSON.parse(localStorage.getItem(this.name)) || 0;
   }
 
   takeTurn(champion) {
