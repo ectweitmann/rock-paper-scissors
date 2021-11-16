@@ -70,7 +70,7 @@ body {
   margin-top: 25%;
 }
 
-/* Arena Section */
+/* Main */
 
 .arena-container {
   display: flex;
@@ -114,7 +114,7 @@ body {
   letter-spacing: 2px;
 }
 
-/* Game Types Section */
+/* Main *//* Game Types Section */
 
 .game-type-container {
   display: flex;
@@ -157,7 +157,7 @@ p {
   background-color: #e4e4e4;
 }
 
-/* Champion Icons Section */
+/* Main *//* Champion Icons Section */
 
 .champion-icons-container {
   display: flex;
