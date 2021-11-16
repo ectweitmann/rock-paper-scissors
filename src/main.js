@@ -71,7 +71,7 @@ function playGame(event) {
   displayPlayerChampions();
   declareGameResult(currentGame.compareChampions());
   toggleUnselectedChampionsVisibility();
-  setTimeout(resetGameBoard, 1200);
+  setTimeout(resetGameBoard, 900);
 }
 
 function declareGameResult(winner) {
