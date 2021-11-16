@@ -74,8 +74,7 @@ function playGame(event) {
 }
 
 function declareGameResult(winner) {
-  toggleElementVisibility(gameInstructions, true);
-  toggleElementVisibility(gameResults, false);
+  toggleGameTaglines();
   gameResults.innerHTML = '';
   if (winner === 'tie') {
      return gameResults.innerHTML = `‍🪢 It\'s a tie! 🪢`;
@@ -135,6 +134,11 @@ function toggleGameTypeContainerVisibility() {
   toggleElementVisibility(gameTypeContainer);
 }
 
+function toggleGameTaglines() {
+  toggleElementVisibility(gameInstructions);
+  toggleElementVisibility(gameResults);
+}
+
 function changeGameInstructionText() {
   if (gameTypeContainer.classList.contains('hidden')) {
     gameInstructions.innerText = 'Choose your Champion!';
@@ -172,8 +176,7 @@ function resetGameBoard() {
     toggleElementVisibility(championIcons[i], false);
     toggleElementClickability(championIcons[i]);
   }
-  toggleElementVisibility(gameResults, true);
-  toggleElementVisibility(gameInstructions , false);
+  toggleGameTaglines();
   changeGameInstructionText();
   toggleElementVisibility(buttonChangeGame, false);
   toggleElementVisibility(buttonResetScore, player1Wins.innerText === '0' && player2Wins.innerText === '0');
