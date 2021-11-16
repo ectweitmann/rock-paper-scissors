@@ -113,6 +113,7 @@ function resetScore() {
 function toggleUnselectedChampionsVisibility() {
   for (var i = 0; i < currentGame.gameLogic.champions.length; i++) {
     toggleElementVisibility(championIcons[i], true);
+    toggleElementClickability(championIcons[i]);
     if (championIcons[i].id === currentGame.player1.champion || championIcons[i].id === currentGame.player2.champion) {
       toggleElementVisibility(championIcons[i]);
     }
@@ -121,6 +122,10 @@ function toggleUnselectedChampionsVisibility() {
 
 function toggleElementOrder(element) {
   element.classList.toggle('p1-champion-order');
+}
+
+function toggleElementClickability(element) {
+  element.classList.toggle('not-clickable');
 }
 
 function toggleElementVisibility(element, isVisible) {
@@ -166,6 +171,7 @@ function resetGameBoard() {
   toggleElementOrder(currentGame.player1.championToken);
   for (var i = 0; i < currentGame.gameLogic.champions.length; i++) {
     toggleElementVisibility(championIcons[i], false);
+    toggleElementClickability(championIcons[i]);
   }
   toggleElementVisibility(gameResults, true);
   toggleElementVisibility(gameInstructions , false);
