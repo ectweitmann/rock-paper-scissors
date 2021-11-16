@@ -31,7 +31,7 @@ Both player's win total will persist after page closure/reload. When the page is
 
 ## Credits
 
-- The Champion icons are made by [Freepik]("https://www.freepik.com") from [Flaticon]("https://www.flaticon.com/")
+- The Champion icons are made by [Freepik](https://www.freepik.com) from [Flaticon](https://www.flaticon.com/)
 
 
 ## Contributors
