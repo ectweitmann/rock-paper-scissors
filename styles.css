@@ -63,6 +63,13 @@ body {
   font-size: 20px;
 }
 
+.player-champion-selection {
+  align-self: center;
+  height: 130px;
+  width: 130px;
+  margin-top: 25%;
+}
+
 /* Arena Section */
 
 .arena-container {
@@ -173,6 +180,10 @@ p {
 
 .p1-champion-order {
   order: -1;
+}
+
+.not-clickable {
+  pointer-events: none;
 }
 
 /* Buttons Container */
