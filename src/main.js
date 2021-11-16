@@ -177,7 +177,7 @@ function resetGameBoard() {
   toggleElementVisibility(gameInstructions , false);
   changeGameInstructionText();
   toggleElementVisibility(buttonChangeGame, false);
-  toggleElementVisibility(buttonResetScore, false);
+  toggleElementVisibility(buttonResetScore, player1Wins.innerText === '0' && player2Wins.innerText === '0');
   displayPlayerChampions();
   currentGame.reset();
 }
