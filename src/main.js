@@ -1,9 +1,13 @@
 var player1Name = document.querySelector('#player1Name');
 var player1Wins = document.querySelector('#player1Wins');
+var player1ChampionSelection = document.querySelector('#p1ChampionSelection');
 var player2Name = document.querySelector('#player2Name');
 var player2Wins = document.querySelector('#player2Wins');
+var player2ChampionSelection = document.querySelector('#p2ChampionSelection');
 
 var gameTypeContainer = document.querySelector('#gameTypeContainer');
+var classicGameType = document.querySelector('#classicGameType');
+var difficultGameType = document.querySelector('#difficultGameType');
 var championIconsContainer= document.querySelector('#championIconsContainer');
 var gameInstructions = document.querySelector('#gameInstructions');
 var gameResults = document.querySelector('#gameResults');
@@ -21,7 +25,8 @@ var currentGame = new Game(
 );
 
 window.addEventListener('load', setUpGame);
-gameTypeContainer.addEventListener('click', displayGameBoard);
+classicGameType.addEventListener('click', displayGameBoard);
+difficultGameType.addEventListener('click', displayGameBoard);
 buttonChangeGame.addEventListener('click', displayGameMenu);
 buttonResetScore.addEventListener('click', resetScore);
 
@@ -50,16 +55,23 @@ function displayPlayerWins() {
 function selectChampions(event) {
   currentGame.player1.takeTurn(event.target.id);
   currentGame.player1.championToken = event.target;
+  player1ChampionSelection.src = event.target.src;
   toggleElementOrder(event.target);
   currentGame.player2.takeTurn();
-  currentGame.player2.championToken = `assets/${currentGame.player2.champion}.png`;
+  player2ChampionSelection.src = `assets/${currentGame.player2.champion}.png`;
+}
+
+function displayPlayerChampions() {
+  toggleElementVisibility(p1ChampionSelection);
+  toggleElementVisibility(p2ChampionSelection);
 }
 
 function playGame(event) {
   selectChampions(event);
+  displayPlayerChampions();
   declareGameResult(currentGame.compareChampions());
   toggleUnselectedChampionsVisibility();
-  setTimeout(resetGameBoard, 1000);
+  setTimeout(resetGameBoard, 1200);
 }
 
 function declareGameResult(winner) {
@@ -160,6 +172,7 @@ function resetGameBoard() {
   changeGameInstructionText();
   toggleElementVisibility(buttonChangeGame, false);
   toggleElementVisibility(buttonResetScore, false);
+  displayPlayerChampions();
   currentGame.reset();
 }
 
