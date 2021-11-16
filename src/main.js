@@ -13,6 +13,7 @@ var player2Token = document.querySelector('#player2Token').src;
 var championIcons = championIconsContainer.querySelectorAll('img');
 
 var buttonChangeGame = document.querySelector('#changeGame');
+var buttonResetScore = document.querySelector('#resetScore');
 
 var currentGame = new Game(
   new Player(player1Name.innerText, player1Token, player1Wins.innerText),
@@ -22,6 +23,7 @@ var currentGame = new Game(
 window.addEventListener('load', setUpGame);
 gameTypeContainer.addEventListener('click', displayGameBoard);
 buttonChangeGame.addEventListener('click', displayGameMenu);
+buttonResetScore.addEventListener('click', resetScore);
 
 function getGameType(event) {
   return event.target.children[0].id;
@@ -35,6 +37,9 @@ function applyGameType(event) {
 function setUpGame(event) {
   displayPlayerWins();
   addEventListenersToChampionIcons();
+  if (player1Wins.innerText !== '0' || player1Wins.innerText !== '0') {
+    toggleElementVisibility(buttonResetScore, false);
+  }
 }
 
 function displayPlayerWins() {
@@ -72,14 +77,25 @@ function declareGameResult(winner) {
   updatePlayerWins(winner);
 }
 
-function updatePlayerWins(winner) {
-  if (winner === currentGame.player1) {
-    player1Wins.innerText = `${winner.wins}`;
-    winner.saveWinsToStorage();
-  } else if (winner === currentGame.player2) {
-    player2Wins.innerText = `${winner.wins}`;
-    winner.saveWinsToStorage();
+function updatePlayerWins(player) {
+  if (player === currentGame.player1) {
+    player1Wins.innerText = `${player.wins}`;
+    player.saveWinsToStorage();
+  } else if (player === currentGame.player2) {
+    player2Wins.innerText = `${player.wins}`;
+    player.saveWinsToStorage();
+  } else if (player === 'reset') {
+    player1Wins.innerText = '0';
+    player2Wins.innerText = '0';
   }
+}
+
+function resetScore() {
+  if (player1Wins.innerText !== '0' || player2Wins.innerText !== '0') {
+    localStorage.clear()
+    updatePlayerWins('reset');
+  }
+  toggleElementVisibility(buttonResetScore);
 }
 
 function toggleUnselectedChampionsVisibility() {
@@ -143,6 +159,7 @@ function resetGameBoard() {
   toggleElementVisibility(gameInstructions , false);
   changeGameInstructionText();
   toggleElementVisibility(buttonChangeGame, false);
+  toggleElementVisibility(buttonResetScore, false);
   currentGame.reset();
 }
 
