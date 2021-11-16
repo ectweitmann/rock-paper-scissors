@@ -88,22 +88,27 @@ function declareGameResult(winner) {
 }
 
 function updatePlayerWins(player) {
-  if (player === currentGame.player1) {
-    player1Wins.innerText = `${player.wins}`;
-    player.saveWinsToStorage();
-  } else if (player === currentGame.player2) {
-    player2Wins.innerText = `${player.wins}`;
-    player.saveWinsToStorage();
-  } else if (player === 'reset') {
-    player1Wins.innerText = '0';
-    player2Wins.innerText = '0';
+  var updateWins = {
+    'Human': function () {
+      player1Wins.innerText = `${player.wins}`;
+      player.saveWinsToStorage();
+    },
+    'Computer': function () {
+      player2Wins.innerText = `${player.wins}`;
+      player.saveWinsToStorage();
+    },
+    'Reset': function () {
+      player1Wins.innerText = '0';
+      player2Wins.innerText = '0';
+    }
   }
+  updateWins[player.name || player]();
 }
 
 function resetScore() {
   if (player1Wins.innerText !== '0' || player2Wins.innerText !== '0') {
     localStorage.clear()
-    updatePlayerWins('reset');
+    updatePlayerWins('Reset');
   }
   toggleElementVisibility(buttonResetScore);
 }
