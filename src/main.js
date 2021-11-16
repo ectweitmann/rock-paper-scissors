@@ -31,11 +31,10 @@ buttonChangeGame.addEventListener('click', displayGameMenu);
 buttonResetScore.addEventListener('click', resetScore);
 
 function getGameType(event) {
-  return event.target.children[0].id;
+  return currentGame.type = event.target.children[0].id;
 }
 
-function applyGameType(event) {
-  currentGame.type = getGameType(event);
+function applyGameType() {
   currentGame.establishGameType();
 }
 
