@@ -147,7 +147,7 @@ function changeGameInstructionText() {
   }
 }
 
-function toggleChampionIconsContainerVisibility(event) {
+function toggleChampionIconsVisibility(event) {
   toggleElementVisibility(championIconsContainer);
   toggleDifficultChampionsVisibility(event);
 }
@@ -166,7 +166,7 @@ function addEventListenersToChampionIcons() {
 
 function displayGameBoard(event) {
   toggleGameTypeContainerVisibility();
-  toggleChampionIconsContainerVisibility(getGameType(event));
+  toggleChampionIconsVisibility(getGameType(event));
   changeGameInstructionText();
   applyGameType(event);
 }
@@ -186,7 +186,7 @@ function resetGameBoard() {
 }
 
 function displayGameMenu() {
-  toggleChampionIconsContainerVisibility();
+  toggleChampionIconsVisibility();
   toggleGameTypeContainerVisibility();
   changeGameInstructionText();
   toggleElementVisibility(buttonChangeGame);
