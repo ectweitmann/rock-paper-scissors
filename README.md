@@ -1,5 +1,5 @@
 # Rock, Paper, Scissors
-![App Demo](https://github.com/ectweitmann/intention-timer/blob/main/assets/readme.gif)
+![App Demo](assets/README.gif)
 
 The purpose of this app is to create virtual environment in which to put your Rock, Paper, Scissors skills to the test against a Computer player!
 
