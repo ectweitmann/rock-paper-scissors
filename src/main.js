@@ -147,11 +147,12 @@ function changeGameInstructionText() {
   }
 }
 
-function toggleChampionIconsContainerVisibility(gameType) {
-  if (!gameType) {
-    return toggleElementVisibility(championIconsContainer);
-  }
+function toggleChampionIconsContainerVisibility(event) {
   toggleElementVisibility(championIconsContainer);
+  toggleDifficultChampionsVisibility(event);
+}
+
+function toggleDifficultChampionsVisibility(gameType) {
   for (var i = 3; i < championIcons.length; i++) {
     toggleElementVisibility(championIcons[i], gameType === 'classic');
   }
