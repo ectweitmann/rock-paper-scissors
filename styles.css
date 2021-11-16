@@ -182,6 +182,10 @@ p {
   order: -1;
 }
 
+.not-clickable {
+  pointer-events: none;
+}
+
 /* Buttons Container */
 
 .buttons-container {
