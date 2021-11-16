@@ -18,12 +18,13 @@ body {
 }
 
 button {
-  height: 4%;
-  width: 15%;
+  height: 80%;
+  width: 30%;
   background-color: #e4e4e4;
   color: #011A20;
   border: 0;
   border-radius: 5px;
+  text-align: center;
   cursor: pointer;
 }
 
@@ -189,6 +190,16 @@ p {
 
 .p1-champion-order {
   order: -1;
+}
+
+/* Buttons Container */
+
+.buttons-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 5%;
+  width: 45%;
 }
 
 .hidden {
