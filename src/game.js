@@ -20,7 +20,7 @@ class Game {
   }
 
   addWin(player) {
-    player.wins++;
+    player.wins = player.retrieveWinsFromStorage() + 1;
   }
 
   reset() {
