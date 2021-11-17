@@ -53,6 +53,7 @@ function playGame(event) {
   displayPlayerChampions();
   declareGameResult(currentGame.compareChampions());
   toggleUnselectedChampionsVisibility();
+  disableButtons();
   setTimeout(resetGameBoard, 900);
 }
 
@@ -89,6 +90,7 @@ function resetGameBoard() {
   toggleElementVisibility(buttonChangeGame, false);
   toggleElementVisibility(buttonResetScore, player1Wins.innerText === '0' && player2Wins.innerText === '0');
   displayPlayerChampions();
+  enableButtons();
   currentGame.reset();
 }
 
@@ -171,12 +173,31 @@ function toggleUnselectedChampionsVisibility() {
   }
 }
 
+function disableButtons() {
+  buttonChangeGame.disabled = true;
+  buttonResetScore.disabled = true;
+  toggleElementClickability(buttonChangeGame);
+  toggleElementClickability(buttonResetScore);
+}
+
+function enableButtons() {
+  buttonChangeGame.disabled = false;
+  buttonResetScore.disabled = false;
+  toggleElementClickability(buttonChangeGame);
+  toggleElementClickability(buttonResetScore);
+}
+
 function toggleElementOrder(element) {
   element.classList.toggle('p1-champion-order');
 }
 
 function toggleElementClickability(element) {
-  element.classList.toggle('not-clickable');
+  if (element !== buttonResetScore && element !== buttonChangeGame) {
+    element.classList.toggle('not-clickable');
+  } else {
+    element.classList.toggle('disable-button');
+  }
+
 }
 
 function toggleElementVisibility(element, isVisible) {
