@@ -130,9 +130,9 @@ function declareGameResult(winner) {
   }
   gameResults.innerHTML = `
     <p class="game-tagline">
-    <img class="game-result" src="assets/${winner.name}.png">
+    <img class="game-result" src="assets/${winner.name.toLowerCase()}.png">
     ${winner.name} won this round!
-    <img class="game-result" src="assets/${winner.name}.png">
+    <img class="game-result" src="assets/${winner.name.toLowerCase()}.png">
     </p>`;
   updatePlayerWins(winner);
 }
