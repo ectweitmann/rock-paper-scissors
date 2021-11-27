@@ -155,14 +155,6 @@ function updatePlayerWins(player) {
   updateWins[player.name || player]();
 }
 
-function resetScore() {
-  if (player1Wins.innerText !== '0' || player2Wins.innerText !== '0') {
-    localStorage.clear()
-    updatePlayerWins('Reset');
-  }
-  toggleElementVisibility(buttonResetScore);
-}
-
 function toggleUnselectedChampionsVisibility() {
   for (var i = 0; i < currentGame.gameLogic.champions.length; i++) {
     toggleElementVisibility(championIcons[i], true);
