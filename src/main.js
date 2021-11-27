@@ -119,8 +119,8 @@ function selectChampions(event) {
 }
 
 function displayPlayerChampions() {
-  toggleElementVisibility(p1ChampionSelection);
-  toggleElementVisibility(p2ChampionSelection);
+  toggleElementVisibility(player1ChampionSelection);
+  toggleElementVisibility(player2ChampionSelection);
 }
 
 function declareGameResult(winner) {
