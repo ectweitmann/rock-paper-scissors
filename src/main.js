@@ -160,9 +160,10 @@ function toggleUnselectedChampionsVisibility() {
   for (var i = 0; i < currentGame.gameLogic.champions.length; i++) {
     toggleElementVisibility(championIcons[i], true);
     toggleElementClickability(championIcons[i]);
-    if (championIcons[i].id === currentGame.player1.champion || championIcons[i].id === currentGame.player2.champion) {
-      toggleElementVisibility(championIcons[i]);
-    }
+    if (
+      championIcons[i].id === currentGame.player1.champion
+      || championIcons[i].id === currentGame.player2.champion
+    ) { toggleElementVisibility(championIcons[i]); }
   }
 }
 
