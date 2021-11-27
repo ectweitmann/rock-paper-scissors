@@ -140,15 +140,15 @@ function declareGameResult(winner) {
 
 function updatePlayerWins(player) {
   var updateWins = {
-    'Human': function () {
+    'Human'() {
       player1Wins.innerText = `${player.wins}`;
       player.saveWinsToStorage();
     },
-    'Computer': function () {
+    'Computer'() {
       player2Wins.innerText = `${player.wins}`;
       player.saveWinsToStorage();
     },
-    'Reset': function () {
+    'Reset'() {
       player1Wins.innerText = '0';
       player2Wins.innerText = '0';
     }
