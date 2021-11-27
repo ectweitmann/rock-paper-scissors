@@ -1,33 +1,33 @@
 // Query Selectors
 // Players
-var player1Token = document.querySelector('#player1Token').src;
-var player1Name = document.querySelector('#player1Name');
-var player1Wins = document.querySelector('#player1Wins');
-var player1ChampionSelection = document.querySelector('#p1ChampionSelection');
-var player2Token = document.querySelector('#player2Token').src;
-var player2Name = document.querySelector('#player2Name');
-var player2Wins = document.querySelector('#player2Wins');
-var player2ChampionSelection = document.querySelector('#p2ChampionSelection');
+const player1Token = document.querySelector('#player1Token').src;
+const player1Name = document.querySelector('#player1Name');
+const player1Wins = document.querySelector('#player1Wins');
+const player1ChampionSelection = document.querySelector('#p1ChampionSelection');
+const player2Token = document.querySelector('#player2Token').src;
+const player2Name = document.querySelector('#player2Name');
+const player2Wins = document.querySelector('#player2Wins');
+const player2ChampionSelection = document.querySelector('#p2ChampionSelection');
 
 // Game Types
-var gameTypeContainer = document.querySelector('#gameTypeContainer');
-var classicGameType = document.querySelector('#classicGameType');
-var difficultGameType = document.querySelector('#difficultGameType');
+const gameTypeContainer = document.querySelector('#gameTypeContainer');
+const classicGameType = document.querySelector('#classicGameType');
+const difficultGameType = document.querySelector('#difficultGameType');
 
 // Champions
-var championIconsContainer = document.querySelector('#championIconsContainer');
-var championIcons = championIconsContainer.querySelectorAll('img');
+const championIconsContainer = document.querySelector('#championIconsContainer');
+const championIcons = championIconsContainer.querySelectorAll('img');
 
 // Game Taglines
-var gameInstructions = document.querySelector('#gameInstructions');
-var gameResults = document.querySelector('#gameResults');
+const gameInstructions = document.querySelector('#gameInstructions');
+const gameResults = document.querySelector('#gameResults');
 
 //Buttons
-var buttonChangeGame = document.querySelector('#changeGame');
-var buttonResetScore = document.querySelector('#resetScore');
+const buttonChangeGame = document.querySelector('#changeGame');
+const buttonResetScore = document.querySelector('#resetScore');
 
 // currentGame Variable
-var currentGame = new Game(
+const currentGame = new Game(
   new Player(player1Name.innerText, player1Token, player1Wins.innerText),
   new Player(player2Name.innerText, player2Token, player2Wins.innerText)
 );
@@ -81,7 +81,7 @@ function resetScore() {
 
 function resetGameBoard() {
   toggleElementOrder(currentGame.player1.championToken);
-  for (var i = 0; i < currentGame.gameLogic.champions.length; i++) {
+  for (let i = 0; i < currentGame.gameLogic.champions.length; i++) {
     toggleElementVisibility(championIcons[i], false);
     toggleElementClickability(championIcons[i]);
   }
@@ -139,7 +139,7 @@ function declareGameResult(winner) {
 }
 
 function updatePlayerWins(player) {
-  var updateWins = {
+  let updateWins = {
     'Human'() {
       player1Wins.innerText = `${player.wins}`;
       player.saveWinsToStorage();
@@ -157,7 +157,7 @@ function updatePlayerWins(player) {
 }
 
 function toggleUnselectedChampionsVisibility() {
-  for (var i = 0; i < currentGame.gameLogic.champions.length; i++) {
+  for (let i = 0; i < currentGame.gameLogic.champions.length; i++) {
     toggleElementVisibility(championIcons[i], true);
     toggleElementClickability(championIcons[i]);
     if (
@@ -223,13 +223,13 @@ function toggleChampionIconsVisibility(event) {
 }
 
 function toggleDifficultChampionsVisibility(gameType) {
-  for (var i = 3; i < championIcons.length; i++) {
+  for (let i = 3; i < championIcons.length; i++) {
     toggleElementVisibility(championIcons[i], gameType === 'classic');
   }
 }
 
 function addEventListenersToChampionIcons() {
-  for (var i = 0; i < championIcons.length; i++) {
+  for (let i = 0; i < championIcons.length; i++) {
     championIcons[i].addEventListener('click', playGame);
   }
 }
