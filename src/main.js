@@ -15,7 +15,7 @@ var classicGameType = document.querySelector('#classicGameType');
 var difficultGameType = document.querySelector('#difficultGameType');
 
 // Champions
-var championIconsContainer= document.querySelector('#championIconsContainer');
+var championIconsContainer = document.querySelector('#championIconsContainer');
 var championIcons = championIconsContainer.querySelectorAll('img');
 
 // Game Taglines
@@ -88,7 +88,8 @@ function resetGameBoard() {
   toggleGameTaglines();
   changeGameInstructionText();
   toggleElementVisibility(buttonChangeGame, false);
-  toggleElementVisibility(buttonResetScore, player1Wins.innerText === '0' && player2Wins.innerText === '0');
+  toggleElementVisibility(buttonResetScore,
+    player1Wins.innerText === '0' && player2Wins.innerText === '0');
   displayPlayerChampions();
   enableButtons();
   currentGame.reset();
