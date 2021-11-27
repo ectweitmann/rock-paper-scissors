@@ -163,7 +163,9 @@ function toggleUnselectedChampionsVisibility() {
     if (
       championIcons[i].id === currentGame.player1.champion
       || championIcons[i].id === currentGame.player2.champion
-    ) { toggleElementVisibility(championIcons[i]); }
+    ) {
+      toggleElementVisibility(championIcons[i]);
+    }
   }
 }
 
