@@ -127,7 +127,7 @@ function declareGameResult(winner) {
   toggleGameTaglines();
   gameResults.innerHTML = '';
   if (winner === 'tie') {
-     return gameResults.innerHTML = `‍🪢 It\'s a tie! 🪢`;
+    return gameResults.innerHTML = `‍🪢 It's a tie! 🪢`;
   }
   gameResults.innerHTML = `
     <p class="game-tagline">
