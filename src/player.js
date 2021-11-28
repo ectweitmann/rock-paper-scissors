@@ -17,7 +17,8 @@ class Player {
     if (this.name === 'Human') {
       return this.champion = champion;
     } else {
-      return this.champion = currentGame.gameLogic.champions[getRandomIndex(currentGame.gameLogic.champions)];
+      return this.champion = currentGame.gameLogic.champions[
+        getRandomIndex(currentGame.gameLogic.champions)];
     }
   }
 }
