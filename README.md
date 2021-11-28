@@ -2,6 +2,7 @@
 ![App Demo](assets/README.gif)
 
 The purpose of this app is to create a virtual environment in which to put your 'Rock, Paper, Scissors' skills to the test against a Computer player!
+
 [Check it out!](https://ectweitmann.github.io/rock-paper-scissors/)
 
 ### Installation
