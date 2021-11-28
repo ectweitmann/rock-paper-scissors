@@ -229,9 +229,9 @@ function toggleDifficultChampionsVisibility(gameType) {
 }
 
 function addEventListenersToChampionIcons() {
-  for (let i = 0; i < championIcons.length; i++) {
-    championIcons[i].addEventListener('click', playGame);
-  }
+  championIcons.forEach(championIcon => {
+    championIcon.addEventListener('click', playGame)
+  });
 }
 
 function getRandomIndex(array) {
